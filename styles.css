@@ -59,12 +59,15 @@ body {
   border-radius: 8px;
 }
 
-.card-back {
+.card-front {
   transform: rotateY(180deg);
+  transform: 2s;
+  transition: transform 0.5s;
 }
 
 .card.flipped {
   transform: rotateY(180deg);
+  transition: transform 0.5s;
 }
 
 #quick-btn,
