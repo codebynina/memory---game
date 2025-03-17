@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", ()=> {
+
   const cards = [
     {id: 1, name : "HTML" , img: "img/html.png"  },
     {id: 2, name : "CSS" , img: "img/css.png"  },
@@ -76,4 +76,4 @@ player2Btn.addEventListener("click", () => {
 shopBtn.addEventListener("click", () => {
   alert("Under Constuction 🚧")
 });
-});
+
