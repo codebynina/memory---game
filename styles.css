@@ -15,11 +15,35 @@ body {
   flex-direction: column;
 }
 
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#move-counter,
+#timer {
+  padding: 10px;
+  margin-bottom: 5px;
+  background: linear-gradient(to right, #4caf50, #388e3c);
+  border-radius: 8px;
+  text-align: center;
+  min-width: 120px;
+  display: none;
+}
+
 #container {
   display: grid;
   grid-template-columns: repeat(4, 120px);
   margin-top: 20px;
-  grid-gap: 10 rem;
   gap: 30px;
 }
 
@@ -39,7 +63,6 @@ body {
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transform: 1s;
   transform: rotateY(180deg);
 }
 
@@ -59,15 +82,16 @@ body {
   border-radius: 8px;
 }
 
-.card-front {
+.card-back {
   transform: rotateY(180deg);
-  transform: 2s;
-  transition: transform 0.5s;
 }
 
 .card.flipped {
   transform: rotateY(180deg);
-  transition: transform 0.5s;
+}
+
+.card.matched {
+  pointer-events: none;
 }
 
 #quick-btn,
@@ -87,4 +111,12 @@ body {
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+}
+
+#quick-btn:hover,
+#quest-btn:hover,
+#player2-btn:hover,
+#shop-btn:hover {
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
