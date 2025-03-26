@@ -1,14 +1,18 @@
 
-  const cards = [
-    {id: 1, name : "HTML" , img: "img/html.png"  },
-    {id: 2, name : "CSS" , img: "img/css.png"  },
-    {id: 3, name : "Git" , img: "img/git.png"  },
-    {id: 4, name : "JavaScript" , img: "img/javascript.png"  },
-    {id: 5, name : "React" , img: "img/react.png"  },
-    {id: 6, name : "Tailwind" , img: "img/tailwind.png"  },
-    {id: 7, name : "NodeJS" , img: "img/nodejs.png"  },
-    {id: 8, name : "GitHub" , img: "img/github.png"  },
-    ];
+  const API_URL = "https://raw.githubusercontent.com/codebynina/codebynina.github.io/main/data/cards.json"
+
+  async function fetchCards() {
+    try {
+      const response = await fetch(API_URL);
+      const data = await response.json();
+      renderCards(data);
+    } catch (error) {
+      console.error("Error fetching cards:", error);
+    }
+    
+  }
+
+  fetchCards();
 
     const duplicateAndShuffle = (arr) => { 
     let doubleArray = [...arr, ...arr];
@@ -91,7 +95,7 @@ if (clickedCard.classList.contains("flipped") || clickedCard.classList.contains(
 
     }
   };
-  const renderCards = () => {
+  const renderCards = (data) => {
     menu.style.display = "none";
     container.style.display = "grid";
     container.innerHTML = "";
@@ -99,7 +103,7 @@ if (clickedCard.classList.contains("flipped") || clickedCard.classList.contains(
     document.getElementById("move-counter").style.display = "block";
     document.getElementById("timer").style.display = "block";
 
-    const shuffleCards = duplicateAndShuffle(cards);
+    const shuffleCards = duplicateAndShuffle(data);
 
 
     shuffleCards.forEach((pic) => {
@@ -133,7 +137,9 @@ container.appendChild(card);
   }, 500);
 };
 
-  document.getElementById("quick-btn").addEventListener("click", renderCards);
+  document.getElementById("quick-btn").addEventListener("click", () => {
+    fetchCards();
+  });
 
 
 
