@@ -15,7 +15,7 @@
   fetchCards();
 
     const duplicateAndShuffle = (arr) => { 
-    let doubleArray = [...arr, ...arr];
+    const doubleArray = [...arr, ...arr];
     return doubleArray.sort(() =>Math.random() -0.5);
   };
 
