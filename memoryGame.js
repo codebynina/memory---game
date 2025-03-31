@@ -1,22 +1,24 @@
 
-  const API_URL = "https://raw.githubusercontent.com/codebynina/codebynina.github.io/main/data/cards.json"
-
+  const API_URL ="https://raw.githubusercontent.com/codebynina/codebynina.github.io/refs/heads/main/data/cards.json";
+ 
   async function fetchCards() {
     try {
       const response = await fetch(API_URL);
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
       const data = await response.json();
+      console.log("Fetched data:", data);
       renderCards(data);
     } catch (error) {
-      console.error("Error fetching cards:", error);
+         console.error("Error fetching cards:", error);
     }
     
   }
 
-  fetchCards();
+  
 
     const duplicateAndShuffle = (arr) => { 
-    const doubleArray = [...arr, ...arr];
-    return doubleArray.sort(() =>Math.random() -0.5);
+      return [...arr, ...arr].sort(() =>Math.random() -0.5);
   };
 
 
@@ -24,7 +26,7 @@
   const menu = document.querySelector(".menu");
 
   let moveCounter = 0;
-  let firstClicked = false;
+  let firstClick = false;
   let startTime = 0;
   let timerInterval;
   let flippedCards = [];
@@ -85,8 +87,8 @@ if (clickedCard.classList.contains("flipped") || clickedCard.classList.contains(
 
    
 
-    if (!firstClicked) {
-      firstClicked = true;
+    if (!firstClick) {
+      firstClick = true;
       startTimer();
     }
 
@@ -138,7 +140,12 @@ container.appendChild(card);
 };
 
   document.getElementById("quick-btn").addEventListener("click", () => {
+    document.querySelectorAll(".menu button").forEach((btn) => {
+      btn.style.display = "none";
+    })
+
     fetchCards();
+    
   });
 
 
