@@ -1,0 +1,122 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(45deg, #464545, #5e5b5b, #787575, #a09c9c);
+  animation: gradientAnimation 5s infinite alternate;
+}
+
+.game-container {
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: whitesmoke;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#move-counter,
+#timer {
+  padding: 10px;
+  margin-bottom: 5px;
+  background: linear-gradient(to right, #4caf50, #388e3c);
+  border-radius: 8px;
+  text-align: center;
+  min-width: 120px;
+  display: none;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.card {
+  width: 120px;
+  height: 130px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+  transform: rotate(0deg);
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+
+.card-front img,
+.card-back img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  pointer-events: none;
+}
+
+#quick-btn,
+#quest-btn,
+#player2-btn,
+#shop-btn {
+  padding: 15px 30px;
+  min-width: 120px;
+  text-align: center;
+  background: linear-gradient(to right, #4caf50, #388e3c);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+#quick-btn:hover,
+#quest-btn:hover,
+#player2-btn:hover,
+#shop-btn:hover {
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
