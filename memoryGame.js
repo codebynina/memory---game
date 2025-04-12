@@ -102,6 +102,7 @@ if (clickedCard.classList.contains("flipped") || clickedCard.classList.contains(
 };
 
   const renderCards = (data) => {
+    document.querySelector(".game-title").style.display = "none";
     menu.style.display = "none";
     container.style.display = "grid";
     container.innerHTML = "";
@@ -154,15 +155,15 @@ const endGame =(won) => {
 
 document.getElementById("quick-btn").addEventListener("click", fetchCards);
 
-document.getElementById("quest-btn").questBtn.addEventListener("click", () => {
+document.getElementById("quest-btn").addEventListener("click", () => {
   alert("Under Constuction 🚧")
 });
 
-document.getElementById("player2-btn").player2Btn.addEventListener("click", () => {
+document.getElementById("player2-btn").addEventListener("click", () => {
   alert("Under Constuction 🚧")
 });
 
-document.getElementById("shop-btn").shopBtn.addEventListener("click", () => {
+document.getElementById("shop-btn").addEventListener("click", () => {
   alert("Under Constuction 🚧")
 });
 

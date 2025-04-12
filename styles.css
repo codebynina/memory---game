@@ -9,6 +9,28 @@ body {
   animation: gradientAnimation 5s infinite alternate;
 }
 
+.game-title {
+  font-size: 3.5rem;
+  margin: 100px 0 100px 0;
+  text-align: center;
+  color: #fff;
+  font-family: "Comic Neue", cursive;
+  text-shadow: 2px 2px #00695c, 4px 4px #004d40;
+  animation: floatTitle 3s ease-in-out infinite;
+  padding: 10px;
+  letter-spacing: 2px;
+}
+
+@keyframes floatTitle {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .game-container {
   perspective: 1000px;
   display: flex;
